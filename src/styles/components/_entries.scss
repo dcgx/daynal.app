@@ -1,0 +1,31 @@
+.entry {
+  background: wheat;
+  margin: 10px;
+  border-radius: 4px;
+  color: #eee;
+  display: flex;
+  width: 550px;
+}
+
+.entry__picture {
+  width: 75px;
+  height: 75px;
+}
+
+.entry__body {
+  margin-left: 10px;
+}
+.entry__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+.entry__content {
+  font-size: 12px;
+}
+.entry__date-box {
+  color: $dark-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,35 @@
+.write-page {
+  display: flex;
+}
+.write__content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+}
+
+.write__input {
+  font-size: 20px;
+  font-weight: 800;
+  padding-bottom: 20px;
+}
+
+.write__textarea {
+  color: $dark-grey;
+  font-size: 16px;
+  flex: 1 1 auto;
+  resize: none;
+}
+
+.write__image img {
+  box-shadow: 2px 2px $dark-grey;
+  height: 250px;
+}
+
+.write__sidebar {
+  background: $dark-grey;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15%;
+  width: 4%;
+}
