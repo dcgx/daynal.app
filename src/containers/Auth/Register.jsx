@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { faUser, faLock, faInfo } from '@fortawesome/free-solid-svg-icons';
+import { FaUser, FaLock } from 'react-icons/fa';
 import validator from 'validator';
 
 import { useForm } from '../../hooks/useForm';
@@ -63,7 +63,7 @@ export const Register = () => {
             type="text"
             label="Email"
             placeholder="Enter email"
-            icon={faUser}
+            icon={FaUser}
             name="email"
             value={email}
             onChange={handleInputChange}
@@ -72,7 +72,7 @@ export const Register = () => {
             type="text"
             label="Name"
             placeholder="Enter name"
-            icon={faUser}
+            icon={FaLock}
             name="name"
             value={name}
             onChange={handleInputChange}
@@ -80,7 +80,7 @@ export const Register = () => {
           <Input
             type="text"
             label="Password"
-            icon={faLock}
+            icon={FaLock}
             placeholder="Enter password"
             name="password"
             value={password}
@@ -89,7 +89,7 @@ export const Register = () => {
           <Input
             type="text"
             label="Confirm password"
-            icon={faLock}
+            icon={FaLock}
             placeholder="Enter password"
             name="confirmPassword"
             value={confirmPassword}

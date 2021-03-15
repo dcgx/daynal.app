@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+import { FaUser, FaLock } from 'react-icons/fa';
 
 import {
   login,
@@ -15,7 +15,9 @@ import { FacebookButton } from '../Auth/components/FacebookButton';
 import { TwitterButton } from '../Auth/components/TwitterButton';
 import { Container } from '../../components/Container';
 import { Input } from '../../components/Input';
+import { Label } from '../../components/Label';
 import { Button } from '../../components/Button';
+import { FormControl } from '../../components/FormControl';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -45,24 +47,30 @@ export const Login = () => {
           className="auth__form"
           onSubmit={handleSignInWithEmailAndPassword}
         >
-          <Input
-            type="text"
-            label="Email"
-            placeholder="Enter email"
-            icon={faUser}
-            name="email"
-            value={email}
-            onChange={handleInputChange}
-          />
-          <Input
-            type="text"
-            label="Password"
-            icon={faLock}
-            placeholder="Enter password"
-            name="password"
-            value={password}
-            onChange={handleInputChange}
-          />
+          <FormControl>
+            <Label>Email</Label>
+            <Input
+              type="text"
+              label="Email"
+              placeholder="Enter email"
+              icon={FaUser}
+              name="email"
+              value={email}
+              onChange={handleInputChange}
+            />
+          </FormControl>
+          <FormControl>
+            <Label>Password</Label>
+            <Input
+              type="text"
+              label="Password"
+              icon={FaLock}
+              placeholder="Enter password"
+              name="password"
+              value={password}
+              onChange={handleInputChange}
+            />
+          </FormControl>
 
           <div className="text-right m-5">
             <Link href="#">Forgot password?</Link>

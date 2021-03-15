@@ -1,6 +1,11 @@
 .write-page {
   display: flex;
 }
+.write__header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
 .write__content {
   display: flex;
   flex-direction: column;

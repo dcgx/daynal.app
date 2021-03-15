@@ -5,25 +5,21 @@ import {
   SHOW_ERROR,
 } from '../constants/actionTypes';
 
-import { firebase, googleAuthProvider } from '../firebase/config';
+import { auth, googleAuthProvider } from '../services/firebase';
 import { finishLoading, startLoading } from './ui';
 
 export const startSignInWithGoogle = () => {
   return (dispatch) => {
-    firebase
-      .auth()
-      .signInWithPopup(googleAuthProvider)
-      .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName));
-      });
+    auth.signInWithPopup(googleAuthProvider).then(({ user }) => {
+      dispatch(login(user.uid, user.displayName));
+    });
   };
 };
 
 export const startSignInWithEmailAndPassword = (email, password) => {
   return (dispatch) => {
     dispatch(startLoading());
-    firebase
-      .auth()
+    auth
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName));
@@ -37,8 +33,7 @@ export const startSignInWithEmailAndPassword = (email, password) => {
 
 export const startSignUpWithEmailNameAndPassword = (email, name, password) => {
   return (dispatch) => {
-    firebase
-      .auth()
+    auth
       .createUserWithEmailAndPassword(email, password)
       .then(async ({ user }) => {
         await user.updateProfile({ displayName: name });
@@ -52,7 +47,7 @@ export const startSignUpWithEmailNameAndPassword = (email, name, password) => {
 
 export const startSignOut = () => {
   return async (dispatch) => {
-    await firebase.auth().signOut();
+    await auth.signOut();
 
     dispatch(logout());
   };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { firebase } from '../firebase/config';
+import { auth } from '../services/firebase';
 
 import { AuthRouter } from './AuthRouter';
 import { Home } from '../containers/Home/Home';
@@ -17,7 +17,7 @@ export const AppRouter = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       if (user?.uid) {
         dispatch(login(user.uid, user.email));
         setIsAuthenticated(true);

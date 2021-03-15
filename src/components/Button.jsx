@@ -1,11 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const style = (primary = false, block = false) => ({
+  backgroundColor: primary ? 'transparent' : '#eee',
+  fontFamily: 'Poppins',
+  fontWeight: '500',
+  fontSize: '',
+  lineHeight: '1.2',
+  textTransform: 'uppercase',
+  width: block ? '100%' : undefined,
+  height: '50px',
+  padding: '0 20px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: '15px',
+  cursor: 'pointer',
+});
+
 export const Button = (props) => {
-  let className = 'btn';
-  if (props.primary) className += ' btn-primary';
   return (
-    <button {...props} className={className}>
+    <button {...props} style={style(props.primary)}>
       {props.children}
     </button>
   );
@@ -13,4 +28,5 @@ export const Button = (props) => {
 
 Button.propTypes = {
   primary: PropTypes.bool,
+  block: PropTypes.bool,
 };

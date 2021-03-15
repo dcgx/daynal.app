@@ -88,3 +88,12 @@ input:focus {
 .text-right {
   text-align: right;
 }
+
+.dot {
+  height: 8px;
+  width: 8px;
+  background: $primary;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 2px;
+}
