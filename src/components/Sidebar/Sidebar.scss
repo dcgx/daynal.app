@@ -1,0 +1,21 @@
+@import 'src/styles/variables';
+
+.sidebar {
+  display: flex;
+  background: $dark-grey;
+  height: auto;
+  padding: 100px 10px;
+  width: 370px;
+  overflow: auto;
+}
+.sidebar-nav {
+  display: block;
+  width: 100%;
+}
+.btn-new-entry {
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 2px 2px $dark-grey;
+  text-transform: none;
+}

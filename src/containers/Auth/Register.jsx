@@ -6,14 +6,12 @@ import validator from 'validator';
 
 import { useForm } from '../../hooks/useForm';
 
-import { GoogleButton } from '../Auth/components/GoogleButton';
-import { FacebookButton } from '../Auth/components/FacebookButton';
-import { TwitterButton } from '../Auth/components/TwitterButton';
-import { Container } from '../../components/Container';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { hideError, showError } from '../../actions/ui';
 import { startSignUpWithEmailNameAndPassword } from '../../actions/auth';
+import { Container } from '@material-ui/core';
+import SocialButton from './components/SocialButton';
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -106,9 +104,9 @@ export const Register = () => {
 
           <p className="text-center">Or Sign Up using</p>
           <div className="auth__social-buttons">
-            <GoogleButton />
-            <FacebookButton />
-            <TwitterButton />
+            <SocialButton name="google" />
+            <SocialButton name="facebook" />
+            <SocialButton name="twitter" />
           </div>
 
           <div className="text-center">

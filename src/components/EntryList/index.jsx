@@ -7,6 +7,8 @@ const style = {
   flexDirection: 'column',
 };
 
-export const Entries = (props) => {
+const EntryList = (props) => {
   return <div style={style}>{props.children}</div>;
 };
+
+export default EntryList;

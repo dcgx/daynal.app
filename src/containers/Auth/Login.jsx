@@ -4,20 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FaUser, FaLock } from 'react-icons/fa';
 
 import {
-  login,
   startSignInWithEmailAndPassword,
   startSignInWithGoogle,
 } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 
-import { GoogleButton } from '../Auth/components/GoogleButton';
-import { FacebookButton } from '../Auth/components/FacebookButton';
-import { TwitterButton } from '../Auth/components/TwitterButton';
-import { Container } from '../../components/Container';
 import { Input } from '../../components/Input';
 import { Label } from '../../components/Label';
 import { Button } from '../../components/Button';
 import { FormControl } from '../../components/FormControl';
+import { Container } from '@material-ui/core';
+import SocialButton from './components/SocialButton';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -88,9 +85,13 @@ export const Login = () => {
 
           <p className="text-center">Or Sign Up using</p>
           <div className="auth__social-buttons">
-            <GoogleButton onClick={handleSignInWithGoogle} />
-            <FacebookButton />
-            <TwitterButton />
+            <SocialButton
+              type="button"
+              name="google"
+              onClick={handleSignInWithGoogle}
+            />
+            <SocialButton type="button" name="facebook" />
+            <SocialButton type="button" name="twitter" />
           </div>
 
           <p className="text-center">Or Sign Up using</p>

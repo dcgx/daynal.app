@@ -1,24 +1,14 @@
-import { Button, IconButton, Menu, MenuItem, Select } from '@material-ui/core';
 import React, { useState } from 'react';
-import { MdAccountCircle, MdNotifications } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
-import { startSignOut } from '../actions/auth';
+import { MdAccountCircle, MdNotifications } from 'react-icons/md';
+import { Button, IconButton, Menu, MenuItem, Select } from '@material-ui/core';
 
-import { Input } from './Input';
+import { startSignOut } from '../../actions/auth';
 
-const style = {
-  background: '#eee',
-  position: 'fixed',
-  width: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  zIndex: '1',
-  button: {
-    borderRadius: '20px',
-  },
-};
+import { Input } from '../Input';
+import './AppBar.scss';
 
-export const AppBar = () => {
+const AppBar = () => {
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -36,27 +26,21 @@ export const AppBar = () => {
   };
 
   return (
-    <header style={style}>
-      <div style={{ width: '100%', display: 'flex', margin: '10px 20px' }}>
-        {/* LOGO COMPONENT */}
+    <header className="appbar">
+      <div className="appbar-left">
         <h1 style={{ margin: '0 20px' }}>Daynal</h1>
         <div style={{ margin: '0 20px' }}>
-          <Button style={style.button} variant="contained" color="primary">
+          <Button variant="contained" color="secondary">
             today
           </Button>
         </div>
-        {/* Search Component */}
         <Input placeholder="Search" />
       </div>
-      <div
-        style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}
-      >
-        {/* SELECT COMPONENT */}
+      <div className="appbar-right">
         <Select>
           <option value="">Latest</option>
           <option value="">Earlest</option>
         </Select>
-        {/* IcconButton */}
         <IconButton>
           <MdNotifications />
         </IconButton>
@@ -71,3 +55,5 @@ export const AppBar = () => {
     </header>
   );
 };
+
+export default AppBar;
