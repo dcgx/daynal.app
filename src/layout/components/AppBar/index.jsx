@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { MdAccountCircle, MdNotifications } from 'react-icons/md';
+
 import { Button, IconButton, Menu, MenuItem, Select } from '@material-ui/core';
+import { Input } from '../../../components/Input';
 
-import { startSignOut } from '../../actions/auth';
+import { startSignOut } from '../../../actions/auth';
 
-import { Input } from '../Input';
 import './AppBar.scss';
 
 const AppBar = () => {

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import { auth } from '../services/firebase';
+import { login } from '../actions/auth';
+import { startGetEntriesByUser } from '../actions/entry';
 
 import { AuthRouter } from './AuthRouter';
-import { Home } from '../containers/Home/Home';
-import { Write } from '../containers/Write/Write';
-import { useDispatch } from 'react-redux';
-import { login } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
+
+import { Home } from '../containers/Home/Home';
+import { Writer } from '../containers/Writer/Writer';
 
 export const AppRouter = () => {
   const dispatch = useDispatch();
@@ -17,10 +19,11 @@ export const AppRouter = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
       if (user?.uid) {
         dispatch(login(user.uid, user.email));
         setIsAuthenticated(true);
+        dispatch(startGetEntriesByUser());
       } else {
         setIsAuthenticated(false);
       }
@@ -54,7 +57,7 @@ export const AppRouter = () => {
           isAuthenticated={isAuthenticated}
           exact
           path="/write"
-          component={Write}
+          component={Writer}
         />
       </Switch>
     </Router>

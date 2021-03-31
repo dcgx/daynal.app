@@ -1,9 +1,4 @@
-import {
-  HIDE_ERROR,
-  LOGIN,
-  LOGOUT,
-  SHOW_ERROR,
-} from '../constants/actionTypes';
+import { LOGIN, LOGOUT } from '../constants/actionTypes';
 
 import { auth, googleAuthProvider } from '../services/firebase';
 import { finishLoading, startLoading } from './ui';

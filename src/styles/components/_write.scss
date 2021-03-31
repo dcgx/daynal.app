@@ -1,12 +1,4 @@
-.write-page {
-  display: flex;
-}
-.write__header {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-.write__content {
+.write__form {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -29,12 +21,4 @@
 .write__image img {
   box-shadow: 2px 2px $dark-grey;
   height: 250px;
-}
-
-.write__sidebar {
-  background: $dark-grey;
-  display: flex;
-  flex-direction: column;
-  padding-top: 15%;
-  width: 4%;
 }

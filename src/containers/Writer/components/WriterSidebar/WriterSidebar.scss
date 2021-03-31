@@ -1,0 +1,9 @@
+@import 'src/styles/variables';
+
+.writer-sidebar {
+  background: $dark-grey;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15%;
+  width: 4%;
+}
