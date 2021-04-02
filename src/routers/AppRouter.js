@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 
 import { auth } from '../services/firebase';
-import { login } from '../actions/auth';
-import { startGetEntriesByUser } from '../actions/entry';
+import { signIn } from '../actions/auth';
+import { startFetchEntries } from '../actions/entry';
 
 import { AuthRouter } from './AuthRouter';
 import { PrivateRoute } from './PrivateRoute';
@@ -14,6 +15,7 @@ import { Home } from '../containers/Home/Home';
 import { Writer } from '../containers/Writer/Writer';
 
 export const AppRouter = () => {
+  const history = createHistory();
   const dispatch = useDispatch();
   const [isWaiting, setIsWaiting] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,13 +23,12 @@ export const AppRouter = () => {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user?.uid) {
-        dispatch(login(user.uid, user.email));
+        dispatch(signIn(user.uid, user.email));
         setIsAuthenticated(true);
-        dispatch(startGetEntriesByUser());
+        dispatch(startFetchEntries());
       } else {
         setIsAuthenticated(false);
       }
-
       setIsWaiting(false);
     });
   }, [dispatch, setIsWaiting, setIsAuthenticated]);
@@ -40,7 +41,7 @@ export const AppRouter = () => {
   }
 
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
         <PublicRoute
           isAuthenticated={isAuthenticated}
@@ -56,7 +57,13 @@ export const AppRouter = () => {
         <PrivateRoute
           isAuthenticated={isAuthenticated}
           exact
-          path="/write"
+          path="/write/new"
+          component={Writer}
+        />
+        <PrivateRoute
+          isAuthenticated={isAuthenticated}
+          exact
+          path="/write/:entryId"
           component={Writer}
         />
       </Switch>

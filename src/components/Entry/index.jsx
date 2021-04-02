@@ -17,7 +17,7 @@ const Entry = (props) => {
 
   const handleClickEdit = () => {
     dispatch(selectEntry(props.id, props));
-    history.push('/write');
+    history.push(`/write/${props.id}`);
   };
   const handleClickMore = (event) => {
     setAnchorEl(event.currentTarget);

@@ -1,54 +1,102 @@
 import React, { Fragment } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { HiOutlinePencil } from 'react-icons/hi';
+import { Button, IconButton, makeStyles } from '@material-ui/core';
+import moment from 'moment';
+import { useTheme } from '@material-ui/core/styles';
 
-import { Button } from '@material-ui/core';
-
-import { startNewEntry } from '../../../../actions/entry';
+import {
+  resetSelectedEntry,
+  startCreateEntry,
+  startUpdateEntry,
+} from '../../../../actions/entry';
 
 import './WriterHeader.scss';
+import { useHistory } from 'react-router-dom';
+import { hideAlertDialog, showAlertDialog } from '../../../../actions/ui';
+import AlertDialog from '../../../../components/AlertDialog';
 
-const style = {
+const useStyles = makeStyles((theme) => ({
   button: {
     margin: '6px',
     textTransform: 'none',
     borderRadius: '20px',
     fontWeight: '600',
   },
-};
+}));
 
-const WriterHeader = (props) => {
+const WriterHeader = ({ entryId }) => {
+  const classes = useStyles();
+  const theme = useTheme();
   const dispatch = useDispatch();
+  const history = useHistory();
+  const { selectedEntry } = useSelector((state) => state.entry);
+  const formattedDayNum = moment(selectedEntry.date).format('DD');
+  const formattedDate = moment(selectedEntry.date).format('MMMM YYYY');
+  const formattedDay = moment(selectedEntry.date).format('dddd');
+  const formattedTime = moment(selectedEntry.date).format('h:mm A');
 
-  const handleAddNewEntry = () => {
-    dispatch(startNewEntry());
+  const handleCreateDone = () => {
+    dispatch(startCreateEntry(selectedEntry));
+    history.goBack();
+  };
+
+  const handleUpdateDone = () => {
+    dispatch(startUpdateEntry(selectedEntry));
+    history.goBack();
+  };
+
+  const handleShowAlertDialog = () => {
+    dispatch(showAlertDialog('discard message!!'));
+  };
+
+  const handleDiscard = () => {
+    dispatch(resetSelectedEntry());
+    dispatch(hideAlertDialog());
+    history.goBack();
   };
 
   return (
     <Fragment>
       <div className="writer-header">
-        <Button style={style.button} color="primary" variant="contained">
+        <Button
+          className={classes.button}
+          style={{ background: 'transparent' }}
+          variant="contained"
+          onClick={handleShowAlertDialog}
+        >
           Discard
         </Button>
+        <AlertDialog onDiscard={handleDiscard} />
+
         <Button
-          style={style.button}
+          className={classes.button}
           color="secondary"
           variant="contained"
-          onClick={handleAddNewEntry}
+          onClick={entryId ? handleUpdateDone : handleCreateDone}
         >
           Done
         </Button>
       </div>
       <div className="writer-date">
-        <h3>14 March 2021</h3>
+        <h3>
+          <span style={{ color: `${theme.primary}` }}>{formattedDayNum} </span>
+          {formattedDate}
+        </h3>
         <span>
-          Sunday, <span>19:30 PM</span>
+          {formattedDay}, <span>{formattedTime}</span>
         </span>
+        <IconButton>
+          <HiOutlinePencil />
+        </IconButton>
       </div>
     </Fragment>
   );
 };
 
-WriterHeader.propTypes = {};
+WriterHeader.propTypes = {
+  entryId: PropTypes.string,
+};
 
 export default WriterHeader;

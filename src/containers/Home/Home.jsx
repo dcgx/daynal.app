@@ -2,9 +2,9 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
 
-import { MdAdd } from 'react-icons/md';
+import { HiOutlinePlus } from 'react-icons/hi';
 
-import { Fab } from '@material-ui/core';
+import { Fab, Grid, makeStyles } from '@material-ui/core';
 import moment from 'moment';
 
 import MainLayout from '../../layout';
@@ -12,10 +12,22 @@ import Entry from '../../components/Entry';
 import EntryCard from '../../components/EntryCard';
 import EntryList from '../../components/EntryList';
 
+const useStyles = makeStyles((theme) => ({
+  fab: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+}));
+
 export const Home = () => {
   const history = useHistory();
+  const classes = useStyles();
   const { entries } = useSelector((state) => state.entry);
 
+  const handleGoToWrite = () => {
+    history.push('/write/new');
+  };
   // entries.reduce(function (res, value) {
   //   const date = moment(value.date);
 
@@ -28,6 +40,9 @@ export const Home = () => {
 
   return (
     <MainLayout>
+      <Grid container justify="center">
+        <span>March 2021</span>
+      </Grid>
       <EntryList>
         {entries.map((entry) => (
           <EntryCard creationDate="30 March 2021">
@@ -66,11 +81,8 @@ export const Home = () => {
           />
         </EntryCard> */}
       </EntryList>
-      <Fab
-        style={{ position: 'absolute', bottom: '0px', right: '0px' }}
-        onClick={() => history.push('/write')}
-      >
-        <MdAdd />
+      <Fab color="primary" className={classes.fab} onClick={handleGoToWrite}>
+        <HiOutlinePlus style={{ width: '35px', height: '35px' }} />
       </Fab>
     </MainLayout>
   );

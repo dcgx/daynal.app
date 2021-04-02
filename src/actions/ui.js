@@ -1,25 +1,36 @@
-import {
-  SHOW_ERROR,
-  HIDE_ERROR,
-  START_LOADING,
-  FINISH_LOADING,
-} from '../constants/actionTypes';
+import { actionTypes } from '../constants/actionTypes';
 
 export const showError = (errorMessage) => ({
-  type: SHOW_ERROR,
+  type: actionTypes.showError,
   payload: errorMessage,
 });
 
 export const hideError = () => ({
-  type: HIDE_ERROR,
+  type: actionTypes.hideError,
+});
+
+export const showAlertDialog = (message) => ({
+  type: actionTypes.showAlertDialog,
+  payload: {
+    message,
+    isOpen: true,
+  },
+});
+
+export const hideAlertDialog = () => ({
+  type: actionTypes.hideAlertDialog,
+  payload: {
+    isOpen: false,
+    message: null,
+  },
 });
 
 export const startLoading = () => ({
-  type: START_LOADING,
+  type: actionTypes.startLoading,
   payload: true,
 });
 
 export const finishLoading = () => ({
-  type: FINISH_LOADING,
+  type: actionTypes.finishLoading,
   payload: false,
 });

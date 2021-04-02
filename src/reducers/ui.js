@@ -1,9 +1,4 @@
-import {
-  SHOW_ERROR,
-  HIDE_ERROR,
-  START_LOADING,
-  FINISH_LOADING,
-} from '../constants/actionTypes';
+import { actionTypes } from '../constants/actionTypes';
 
 const initialState = {
   isLoading: false,
@@ -12,23 +7,34 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SHOW_ERROR:
+    case actionTypes.showError:
       return {
         ...state,
         errorMessage: action.payload,
       };
-    case HIDE_ERROR:
+    case actionTypes.hideError:
       return {
         ...state,
         errorMessage: null,
       };
-
-    case START_LOADING:
+    case actionTypes.showAlertDialog:
+      return {
+        ...state,
+        alertMessage: action.payload.message,
+        isOpenAlertDialog: action.payload.isOpen,
+      };
+    case actionTypes.hideAlertDialog:
+      return {
+        ...state,
+        // alertMessage: action.payload.message,
+        isOpenAlertDialog: action.payload.isOpen,
+      };
+    case actionTypes.startLoading:
       return {
         ...state,
         isLoading: action.payload,
       };
-    case FINISH_LOADING:
+    case actionTypes.finishLoading:
       return {
         ...state,
         isLoading: action.payload,
