@@ -1,7 +1,7 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
-import { MdAdd } from 'react-icons/md';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { MdAdd } from "react-icons/md";
 import {
   Button,
   Drawer,
@@ -12,7 +12,7 @@ import {
   Toolbar,
   Grid,
   makeStyles,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 const drawerWidth = 320;
 
@@ -25,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerContainer: {
-    overflow: 'auto',
+    overflow: "auto",
   },
 }));
 
 const AppDrawer = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const classes = useStyles();
   const { name } = useSelector((state) => state.auth);
   return (
@@ -54,7 +54,7 @@ const AppDrawer = () => {
               <Button
                 variant="contained"
                 endIcon={<MdAdd />}
-                onClick={() => history.push('/write/new')}
+                onClick={() => history.push("/write/new")}
               >
                 New Entry
               </Button>

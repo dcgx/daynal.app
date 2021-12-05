@@ -1,32 +1,32 @@
-import React from 'react';
-import { useHistory } from 'react-router';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
-import { HiOutlinePlus } from 'react-icons/hi';
+import { HiOutlinePlus } from "react-icons/hi";
 
-import { Fab, Grid, makeStyles } from '@material-ui/core';
-import moment from 'moment';
+import { Fab, Grid, makeStyles } from "@material-ui/core";
+import moment from "moment";
 
-import MainLayout from '../../layout';
-import Entry from '../../components/Entry';
-import EntryCard from '../../components/EntryCard';
-import EntryList from '../../components/EntryList';
+import MainLayout from "../../layout";
+import Entry from "../../components/Entry";
+import EntryCard from "../../components/EntryCard";
+import EntryList from "../../components/EntryList";
 
 const useStyles = makeStyles((theme) => ({
   fab: {
-    position: 'fixed',
+    position: "fixed",
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
 }));
 
 export const Home = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const classes = useStyles();
   const { entries } = useSelector((state) => state.entry);
 
   const handleGoToWrite = () => {
-    history.push('/write/new');
+    history.push("/write/new");
   };
   // entries.reduce(function (res, value) {
   //   const date = moment(value.date);
@@ -82,7 +82,7 @@ export const Home = () => {
         </EntryCard> */}
       </EntryList>
       <Fab color="primary" className={classes.fab} onClick={handleGoToWrite}>
-        <HiOutlinePlus style={{ width: '35px', height: '35px' }} />
+        <HiOutlinePlus style={{ width: "35px", height: "35px" }} />
       </Fab>
     </MainLayout>
   );

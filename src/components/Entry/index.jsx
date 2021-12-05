@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { FiMoreHorizontal } from 'react-icons/fi';
-import { Menu, MenuItem, IconButton } from '@material-ui/core';
+import { FiMoreHorizontal } from "react-icons/fi";
+import { Menu, MenuItem, IconButton } from "@material-ui/core";
 
-import './Entry.scss';
-import { useDispatch } from 'react-redux';
-import { selectEntry } from '../../actions/entry';
-import { useHistory } from 'react-router-dom';
+import "./Entry.scss";
+import { useDispatch } from "react-redux";
+import { selectEntry } from "../../actions/entry";
+import { useNavigate } from "react-router-dom";
 
 const Entry = (props) => {
-  const history = useHistory();
+  const history = useNavigate();
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -46,7 +46,7 @@ const Entry = (props) => {
         <div
           className="entry-image"
           style={{
-            backgroundSize: 'cover',
+            backgroundSize: "cover",
             backgroundImage: `url(${props.image})`,
           }}
         ></div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes } from "react-router-dom";
+
 import { createBrowserHistory } from "history";
 
 import { auth } from "../services/firebase";
@@ -42,7 +43,7 @@ export const AppRouter = () => {
 
   return (
     <Router history={history}>
-      <Switch>
+      <Routes>
         <PublicRoute
           isAuthenticated={isAuthenticated}
           path="/auth"
@@ -66,7 +67,7 @@ export const AppRouter = () => {
           path="/write/:entryId"
           component={Writer}
         />
-      </Switch>
+      </Routes>
     </Router>
   );
 };

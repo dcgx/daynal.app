@@ -1,5 +1,5 @@
-import { Redirect, Route } from 'react-router';
-import PropTypes from 'prop-types';
+import { Route } from "react-router";
+import PropTypes from "prop-types";
 
 export const PrivateRoute = ({
   isAuthenticated,
@@ -13,7 +13,7 @@ export const PrivateRoute = ({
         isAuthenticated ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/auth/login" />
+          <Route render={() => <Route to="/auth/login" />} />
         )
       }
     />
