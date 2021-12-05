@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
-import { auth } from '../services/firebase';
-import { signIn } from '../actions/auth';
-import { startFetchEntries } from '../actions/entry';
+import { auth } from "../services/firebase";
+import { signIn } from "../actions/auth";
+import { startFetchEntries } from "../actions/entry";
 
-import { AuthRouter } from './AuthRouter';
-import { PrivateRoute } from './PrivateRoute';
-import { PublicRoute } from './PublicRoute';
+import { AuthRouter } from "./AuthRouter";
+import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
-import { Home } from '../containers/Home/Home';
-import { Writer } from '../containers/Writer/Writer';
+import { Home } from "../containers/Home/Home";
+import { Writer } from "../containers/Writer/Writer";
 
 export const AppRouter = () => {
-  const history = createHistory();
+  const history = createBrowserHistory();
   const dispatch = useDispatch();
   const [isWaiting, setIsWaiting] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
