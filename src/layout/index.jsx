@@ -21,8 +21,8 @@ const MainLayout = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar />
-      <AppDrawer />
+      {/* <AppBar /> */}
+      {/* <AppDrawer /> */}
       <main className={classes.content}>{props.children}</main>
     </div>
   );

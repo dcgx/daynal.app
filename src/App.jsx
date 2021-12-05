@@ -1,17 +1,28 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/styles';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { store } from './store';
 import { theme } from './theme';
 
-import { AppRouter } from './routers/AppRouter';
+import { Home } from './containers/Home/Home';
+import { Writer } from './containers/Writer/Writer';
+import { createStore } from 'redux';
+
+import { entryReducer } from './reducers/entryReducer';
+
+const store = createStore(entryReducer);
 
 export const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <AppRouter />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/writer/new" element={<Writer />} />
+          </Routes>
+        </Router>
       </ThemeProvider>
     </Provider>
   );
