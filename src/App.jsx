@@ -1,17 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { ThemeProvider } from '@material-ui/styles';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import createStore from './redux/create';
+
+import { ThemeProvider } from '@material-ui/styles';
 
 import { theme } from './theme';
 
 import { Home } from './containers/Home/Home';
 import { Writer } from './containers/Writer/Writer';
-import { createStore } from 'redux';
 
-import { noteReducer } from './reducers/noteReducer';
-
-const store = createStore(noteReducer);
+const store = createStore();
 
 export const App = () => {
   return (

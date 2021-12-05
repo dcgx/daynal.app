@@ -1,16 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import { HiOutlinePlus } from 'react-icons/hi';
 
 import { Fab, Grid, makeStyles } from '@material-ui/core';
-import moment from 'moment';
+import {
+  NoteListItem,
+  NoteDateWrapperList,
+  NoteDateWrapper,
+} from '../../components/Note';
 
-import MainLayout from '../../layout';
-import Entry from '../../components/Entry';
-import EntryCard from '../../components/EntryCard';
-import EntryList from '../../components/EntryList';
+import DefaultLayout from '../../layout/default';
 
 const useStyles = makeStyles((theme) => ({
   fab: {
@@ -27,22 +28,30 @@ export const Home = () => {
   const navigateToWrite = () => {
     navigate('writer/new');
   };
-  // entries.reduce(function (res, value) {
-  //   const date = moment(value.date);
-
-  //   const month = parseInt(date.format('DD YYYY'));
-  //   const day = parseInt(date.format('D'));
-  //   const year = parseInt(date.format('Y'));
-
-  //   console.log(month);
-  // });
-
   return (
-    <MainLayout>
-      <h2>Home</h2>
+    <DefaultLayout>
+      <Grid container justifyContent="center">
+        <span>March 2021</span>
+      </Grid>
+      <NoteDateWrapperList>
+        <NoteDateWrapper>
+          <NoteListItem time="07:10 AM">Title 1</NoteListItem>
+          <NoteListItem time="15:20 PM"> Title 2</NoteListItem>
+          <NoteListItem time="22:10 PM">Title 3</NoteListItem>
+        </NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+        <NoteDateWrapper></NoteDateWrapper>
+      </NoteDateWrapperList>
       <Fab color="primary" className={classes.fab} onClick={navigateToWrite}>
         <HiOutlinePlus style={{ width: '35px', height: '35px' }} />
       </Fab>
-    </MainLayout>
+    </DefaultLayout>
   );
 };

@@ -1,26 +1,17 @@
 import React from 'react';
 
-import { Container, makeStyles } from '@material-ui/core';
-// import { WriterSidebar, WriterHeader } from './components';
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from '../../hooks/useForm';
-import { useEffect } from 'react';
-import { selectEntry } from '../../actions/entry';
+import { makeStyles } from '@material-ui/core';
+import { Wrapper } from './components';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
   form: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100vh',
-    padding: '20px',
+    height: 'calc(100vh - 200px)',
   },
   inputTitle: {
     fontSize: '20px',
     background: 'transparent',
-
     fontWeight: '800',
     paddingBottom: '20px',
   },
@@ -39,15 +30,6 @@ const useStyles = makeStyles((theme) => ({
 
 export const Writer = (props) => {
   const classes = useStyles();
-  // const dispatch = useDispatch();
-  // const { selectedEntry } = useSelector((state) => state.entry);
-  // const [formValues, handleInputChange, reset] = useForm(selectedEntry);
-  // const { title, content } = formValues;
-  // const entryId = props.match.params.entryId; // if to update
-
-  // useEffect(() => {
-  //   dispatch(selectEntry(formValues.id, { ...formValues }));
-  // }, [formValues]);
 
   return (
     // <div className={classes.root}>
@@ -82,31 +64,29 @@ export const Writer = (props) => {
     //     </form>
     //   </Container>
     // </div>
-    <div className={classes.root}>
-      <Container>
-        <form className={classes.form}>
-          <input
-            className={classes.inputTitle}
-            type="text"
-            placeholder="Title ..."
-            name="title"
-          />
+    <Wrapper>
+      <form className={classes.form}>
+        <input
+          className={classes.inputTitle}
+          type="text"
+          placeholder="Title ..."
+          name="title"
+        />
 
-          <textarea
-            className={classes.textarea}
-            placeholder="What happened today?"
-            name="content"
-          />
+        <textarea
+          className={classes.textarea}
+          placeholder="What happened today?"
+          name="content"
+        />
 
-          <div>
-            <img
-              className={classes.image}
-              src="https://picsum.photos/200/300"
-              alt="Image"
-            />
-          </div>
-        </form>
-      </Container>
-    </div>
+        {/* <div>
+          <img
+            className={classes.image}
+            src="https://picsum.photos/200/300"
+            alt="Image"
+          />
+        </div> */}
+      </form>
+    </Wrapper>
   );
 };
