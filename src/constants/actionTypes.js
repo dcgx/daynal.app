@@ -1,0 +1,18 @@
+export const actionTypes = {
+  signIn: '[Auth] SignIn',
+  signOut: '[Auth] SignOut',
+  fetchEntries: '[Entry] Fetch Entries',
+  loadEntries: '[Entry] Load Entries',
+  addEntry: '[Entry] Add Entry',
+  updateEntry: '[Entry] Update Entry',
+  deleteEntry: '[Entry] Delete Entry',
+  selectEntry: '[Entry] Select Entry',
+  resetSelectedEntry: '[Entry] Reset Selected Entry',
+  showError: '[UI] Show Error',
+  hideError: '[UI] Hide Error',
+  showAlertDialog: '[UI] Show Alert Dialog',
+  hideAlertDialog: '[UI] Hide Alert Dialog',
+  startLoading: '[UI] Start Loading',
+  finishLoading: '[UI] Finish Loading',
+  destroySession: '[App] Destroy Session',
+};
