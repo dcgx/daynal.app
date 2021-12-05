@@ -1,7 +1,14 @@
 import { actionTypes } from "../constants/actionTypes";
 
-import { addDoc, updateDoc, deleteDoc, getDoc } from "firebase/firestore";
-import { db, collection, doc } from "../services/firebase";
+import {
+  collection,
+  doc,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  getDoc,
+} from "firebase/firestore";
+import { firestore } from "../services/firebase";
 import { getAuth } from "@firebase/auth";
 
 export const startCreateEntry = (entry) => {
