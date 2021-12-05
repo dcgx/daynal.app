@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, makeStyles } from '@material-ui/core';
-import { WriterSidebar, WriterHeader } from './components';
+// import { WriterSidebar, WriterHeader } from './components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
 import { useEffect } from 'react';
@@ -39,8 +39,49 @@ const useStyles = makeStyles((theme) => ({
 
 export const Writer = (props) => {
   const classes = useStyles();
+  // const dispatch = useDispatch();
+  // const { selectedEntry } = useSelector((state) => state.entry);
+  // const [formValues, handleInputChange, reset] = useForm(selectedEntry);
+  // const { title, content } = formValues;
+  // const entryId = props.match.params.entryId; // if to update
+
+  // useEffect(() => {
+  //   dispatch(selectEntry(formValues.id, { ...formValues }));
+  // }, [formValues]);
 
   return (
+    // <div className={classes.root}>
+    //   <WriterSidebar />
+    //   <Container>
+    //     <WriterHeader entryId={entryId} />
+    //     <form className={classes.form}>
+    //       <input
+    //         className={classes.inputTitle}
+    //         type="text"
+    //         placeholder="Title ..."
+    //         name="title"
+    //         value={title}
+    //         onChange={handleInputChange}
+    //       />
+
+    //       <textarea
+    //         className={classes.textarea}
+    //         placeholder="What happened today?"
+    //         name="content"
+    //         value={content}
+    //         onChange={handleInputChange}
+    //       />
+
+    //       <div>
+    //         <img
+    //           className={classes.image}
+    //           src="https://picsum.photos/200/300"
+    //           alt="Image"
+    //         />
+    //       </div>
+    //     </form>
+    //   </Container>
+    // </div>
     <div className={classes.root}>
       <Container>
         <form className={classes.form}>

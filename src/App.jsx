@@ -9,9 +9,9 @@ import { Home } from './containers/Home/Home';
 import { Writer } from './containers/Writer/Writer';
 import { createStore } from 'redux';
 
-import { entryReducer } from './reducers/entryReducer';
+import { noteReducer } from './reducers/noteReducer';
 
-const store = createStore(entryReducer);
+const store = createStore(noteReducer);
 
 export const App = () => {
   return (
