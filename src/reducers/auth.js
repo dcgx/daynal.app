@@ -1,4 +1,4 @@
-import { actionTypes, LOGIN, LOGOUT } from '../constants/actionTypes';
+import { actionTypes } from "../constants/actionTypes";
 
 export default (state = {}, action) => {
   switch (action.type) {
