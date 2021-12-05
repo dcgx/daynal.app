@@ -1,6 +1,8 @@
-import { actionTypes } from '../constants/actionTypes';
+import { actionTypes } from "../constants/actionTypes";
 
-import { db } from '../services/firebase';
+import { addDoc, updateDoc, deleteDoc, getDoc } from "firebase/firestore";
+import { db, collection, doc } from "../services/firebase";
+import { getAuth } from "@firebase/auth";
 
 export const startCreateEntry = (entry) => {
   return async (dispatch, getState) => {
@@ -11,7 +13,12 @@ export const startCreateEntry = (entry) => {
       date: new Date().getTime(),
     };
 
-    const docRef = await db.collection(`users/${uid}/entries`).add(newEntry);
+    const docRef = "";
+
+    // const docRef = await addDoc(
+    //   collection(db, `users/${uid}/entries`),
+    //   newEntry
+    // );
 
     dispatch(addEntry(docRef.id, newEntry));
   };
@@ -26,7 +33,10 @@ export const startUpdateEntry = (entry) => {
     const entryToUpdate = { ...entry };
     delete entryToUpdate.id;
 
-    await db.doc(`users/${uid}/entries/${entry.id}`).update(entryToUpdate);
+    // await updateDoc(
+    //   collection(db, `users/${uid}/entries/${entry.id}`),
+    //   entryToUpdate
+    // );
 
     dispatch(updateEntry(entry.id, entry));
   };
@@ -35,7 +45,7 @@ export const startUpdateEntry = (entry) => {
 export const startDeleteEntry = (id) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
-    await db.doc(`users/${uid}/entries/${id}`).delete();
+    // deleteDoc(doc(db, `users/${uid}/entries/${id}`));
 
     dispatch(deleteEntry(id));
   };
@@ -45,7 +55,8 @@ export const startFetchEntries = () => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
 
-    const snapshot = await db.collection(`users/${uid}/entries`).get();
+    // const snapshot = await getDoc(collection(db, `users/${uid}/entries`));
+    const snapshot = [];
     const entries = [];
 
     snapshot.forEach((snapshot) =>
@@ -95,5 +106,5 @@ export const selectEntry = (id, entry) => ({
 
 export const resetSelectedEntry = () => ({
   type: actionTypes.resetSelectedEntry,
-  payload: '',
+  payload: "",
 });

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { BrowserRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { createBrowserHistory } from "history";
 
@@ -44,7 +44,9 @@ export const AppRouter = () => {
   return (
     <Router history={history}>
       <Routes>
-        <PublicRoute
+        <Route path="/" element={<Home />} />
+        <Route path="/writer" element={<Writer />} />
+        {/* <PublicRoute
           isAuthenticated={isAuthenticated}
           path="/auth"
           component={AuthRouter}
@@ -66,7 +68,7 @@ export const AppRouter = () => {
           exact
           path="/write/:entryId"
           component={Writer}
-        />
+        /> */}
       </Routes>
     </Router>
   );

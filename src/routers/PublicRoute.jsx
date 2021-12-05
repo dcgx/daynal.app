@@ -1,5 +1,6 @@
-import { Route } from "react-router";
+import { Route } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Fragment } from "react";
 
 export const PublicRoute = ({
   isAuthenticated,
@@ -9,11 +10,11 @@ export const PublicRoute = ({
   return (
     <Route
       {...rest}
-      component={(props) =>
+      element={(props) =>
         isAuthenticated ? (
           <Route render={() => <Route to="/" />} />
         ) : (
-          <Component {...props} />
+          <Fragment {...props} />
         )
       }
     />

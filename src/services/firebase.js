@@ -1,16 +1,17 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, doc } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 // Firebase config
 const firebaseConfig = {};
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-const storage = firebase.storage();
-const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const auth = getAuth();
+const db = getFirestore();
+const storage = getStorage();
+const googleAuthProvider = new GoogleAuthProvider();
 
-export { auth, db, storage, googleAuthProvider };
+export { auth, db, collection, doc, storage, googleAuthProvider };
