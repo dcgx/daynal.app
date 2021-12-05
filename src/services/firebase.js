@@ -1,16 +1,9 @@
-import firebase from 'firebase';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
 
 // Firebase config
-var firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: '',
-  appId: '',
-};
+const firebaseConfig = {};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
