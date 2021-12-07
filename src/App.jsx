@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import createStore from './redux/create';
 
-import { ThemeProvider } from '@material-ui/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 import { theme } from './theme';
 

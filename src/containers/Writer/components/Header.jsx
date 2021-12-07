@@ -2,7 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { HiOutlinePencil } from 'react-icons/hi';
-import { Button, IconButton, makeStyles } from '@material-ui/core';
+
+import { makeStyles } from '@mui/styles';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -14,16 +18,21 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: '6px',
     textTransform: 'none',
-    borderRadius: '20px',
+    borderRadius: '50px',
     fontWeight: '600',
+    background: 'red',
   },
 }));
 
 const Header = () => {
   const classes = useStyles();
 
-  const handleShowAlertDialog = () => {
-    console.log('handleShowAlertDialog');
+  const handleClickShowDiscardDialog = () => {
+    console.log('handleClickShowDiscardDialog');
+  };
+
+  const handleClickDone = () => {
+    console.log('handleClickDone');
   };
 
   return (
@@ -31,18 +40,17 @@ const Header = () => {
       <div className={classes.header}>
         <Button
           className={classes.button}
-          style={{ background: 'transparent' }}
-          variant="contained"
-          onClick={handleShowAlertDialog}
+          variant="outlined"
+          onClick={handleClickShowDiscardDialog}
         >
           Discard
         </Button>
-        {/* <AlertDialog onDiscard={handleDiscard} /> */}
 
         <Button
           className={classes.button}
           color="secondary"
           variant="contained"
+          onClick={handleClickDone}
         >
           Done
         </Button>

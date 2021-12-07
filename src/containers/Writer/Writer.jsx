@@ -32,38 +32,6 @@ export const Writer = (props) => {
   const classes = useStyles();
 
   return (
-    // <div className={classes.root}>
-    //   <WriterSidebar />
-    //   <Container>
-    //     <WriterHeader entryId={entryId} />
-    //     <form className={classes.form}>
-    //       <input
-    //         className={classes.inputTitle}
-    //         type="text"
-    //         placeholder="Title ..."
-    //         name="title"
-    //         value={title}
-    //         onChange={handleInputChange}
-    //       />
-
-    //       <textarea
-    //         className={classes.textarea}
-    //         placeholder="What happened today?"
-    //         name="content"
-    //         value={content}
-    //         onChange={handleInputChange}
-    //       />
-
-    //       <div>
-    //         <img
-    //           className={classes.image}
-    //           src="https://picsum.photos/200/300"
-    //           alt="Image"
-    //         />
-    //       </div>
-    //     </form>
-    //   </Container>
-    // </div>
     <Wrapper>
       <form className={classes.form}>
         <input
@@ -78,14 +46,6 @@ export const Writer = (props) => {
           placeholder="What happened today?"
           name="content"
         />
-
-        {/* <div>
-          <img
-            className={classes.image}
-            src="https://picsum.photos/200/300"
-            alt="Image"
-          />
-        </div> */}
       </form>
     </Wrapper>
   );

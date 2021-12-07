@@ -7,8 +7,13 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/pickers": "^3.3.10",
+    "@mui/lab": "^5.0.0-alpha.58",
+    "@mui/material": "^5.2.2",
+    "@mui/styles": "^5.2.2",
     "firebase": "^9.6.0",
     "history": "^5.1.0",
     "moment": "^2.29.1",

@@ -1,24 +1,24 @@
-import { createTheme } from "@material-ui/core";
-import variables from "./styles/_variables.scss";
+import { createTheme } from '@mui/material/styles';
+import variables from './styles/_variables.scss';
 
 // ec0b43-58355e-7ae7c7-d6ffb7-fff689
 export const theme = createTheme({
   palette: {
     primary: {
       // light: undefined
-      main: "#EC0B43",
+      main: '#EC0B43',
       // dark: undefined
-      contrastText: "#fff",
+      contrastText: '#fff',
     },
     secondary: {
       // light: undefined,
-      main: "#58355E",
+      main: '#58355E',
       // contrastText: undefined,
     },
     // error: undefined,
     // warning: undefined,
     info: {
-      main: "#7AE7C7",
+      main: '#7AE7C7',
     },
     // success: undefined,
     // text: undefined,

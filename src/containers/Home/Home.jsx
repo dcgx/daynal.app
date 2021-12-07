@@ -1,6 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-// import { useSelector } from 'react-redux';
 
 import { HiOutlinePlus } from 'react-icons/hi';
 
@@ -25,6 +25,9 @@ export const Home = () => {
   const navigate = useNavigate();
   const classes = useStyles();
 
+  const state = useSelector((state) => state);
+
+  console.log(state, 'state');
   const navigateToWrite = () => {
     navigate('writer/new');
   };
