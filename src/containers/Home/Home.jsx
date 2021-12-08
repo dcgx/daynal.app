@@ -1,36 +1,36 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
-import { HiOutlinePlus } from 'react-icons/hi';
+import { HiOutlinePlus } from 'react-icons/hi'
 
-import { Fab, Grid, makeStyles } from '@material-ui/core';
+import { Fab, Grid, makeStyles } from '@material-ui/core'
 import {
   NoteListItem,
   NoteDateWrapperList,
-  NoteDateWrapper,
-} from '../../components/Note';
+  NoteDateWrapper
+} from '../../components/Note'
 
-import DefaultLayout from '../../layout/default';
+import DefaultLayout from '../../layout/default'
 
 const useStyles = makeStyles((theme) => ({
   fab: {
     position: 'fixed',
     bottom: theme.spacing(2),
-    right: theme.spacing(2),
-  },
-}));
+    right: theme.spacing(2)
+  }
+}))
 
 export const Home = () => {
-  const navigate = useNavigate();
-  const classes = useStyles();
+  const navigate = useNavigate()
+  const classes = useStyles()
 
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state)
 
-  console.log(state, 'state');
+  console.log(state, 'state')
   const navigateToWrite = () => {
-    navigate('writer/new');
-  };
+    navigate('writer/new')
+  }
   return (
     <DefaultLayout>
       <Grid container justifyContent="center">
@@ -56,5 +56,5 @@ export const Home = () => {
         <HiOutlinePlus style={{ width: '35px', height: '35px' }} />
       </Fab>
     </DefaultLayout>
-  );
-};
+  )
+}
