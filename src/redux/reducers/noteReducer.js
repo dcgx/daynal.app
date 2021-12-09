@@ -3,13 +3,13 @@ const initialState = {
   selectedNote: {}
 }
 
-export default function reducer(state = [], action = {}) {
+export default function reducer(state = initialState, action = {}) {
   if (action.type === '@note/created') {
-    return state.concat(action.payload)
+    return state.notes.concat(action.payload)
   }
   if (action.type === '@note/toggleImportant') {
     const { id } = action.payload
-    return state.map((note) => {
+    return state.notes.map((note) => {
       if (note.id === id) {
         return {
           ...note,

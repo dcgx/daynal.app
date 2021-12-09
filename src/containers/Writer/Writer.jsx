@@ -1,35 +1,37 @@
-import React from 'react';
+import React from 'react'
 
-import { makeStyles } from '@material-ui/core';
-import { Wrapper } from './components';
+import { makeStyles } from '@material-ui/core'
+import { Wrapper } from './components'
+import { useForm } from '../../hooks/useForm'
 
 const useStyles = makeStyles((theme) => ({
   form: {
     display: 'flex',
     flexDirection: 'column',
-    height: 'calc(100vh - 200px)',
+    height: 'calc(100vh - 200px)'
   },
   inputTitle: {
     fontSize: '20px',
     background: 'transparent',
     fontWeight: '800',
-    paddingBottom: '20px',
+    paddingBottom: '20px'
   },
   textarea: {
     color: 'gray',
     background: 'transparent',
     fontSize: '16px',
     flex: '1 1 auto',
-    resize: 'none',
+    resize: 'none'
   },
   image: {
     boxShadow: '2px 2px gray',
-    height: '250px',
-  },
-}));
+    height: '250px'
+  }
+}))
 
 export const Writer = (props) => {
-  const classes = useStyles();
+  const classes = useStyles()
+  const [form, setForm] = useForm()
 
   return (
     <Wrapper>
@@ -48,5 +50,5 @@ export const Writer = (props) => {
         />
       </form>
     </Wrapper>
-  );
-};
+  )
+}

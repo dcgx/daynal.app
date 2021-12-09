@@ -8,8 +8,9 @@ import { ThemeProvider } from '@mui/material/styles'
 
 import { theme } from './theme'
 
-import { Home } from './containers/Home/Home'
-import { Writer } from './containers/Writer/Writer'
+// import { Home } from './containers/Home/Home'
+// import { Writer } from './containers/Writer/Writer'
+import LoginPage from './pages/Login/LoginPage'
 
 const store = createStore()
 
@@ -19,8 +20,9 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/writer/new" element={<Writer />} />
+            {/* <Route path="/" element={<Home />} />
+            <Route path="/writer/new" element={<Writer />} /> */}
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
         </Router>
       </ThemeProvider>
