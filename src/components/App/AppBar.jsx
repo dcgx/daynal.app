@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import { HiSearch, MdAccountCircle, MdNotifications } from 'react-icons/all';
+import { HiSearch, MdAccountCircle, MdNotifications } from 'react-icons/all'
 import {
   AppBar as MuiAppBar,
   Typography,
@@ -12,35 +12,35 @@ import {
   TextField,
   InputAdornment,
   Grid,
-  makeStyles,
-} from '@material-ui/core';
+  makeStyles
+} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 1
   },
   avatar: {
     borderRadius: '50px ',
-    width: '20px',
-  },
-}));
+    width: '20px'
+  }
+}))
 
 const AppBar = () => {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = useState(null);
+  const classes = useStyles()
+  const [anchorEl, setAnchorEl] = useState(null)
 
-  const open = Boolean(anchorEl);
+  const open = Boolean(anchorEl)
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleLogout = () => {
-    console.log('logout');
-  };
+    console.log('logout')
+  }
 
   return (
     <MuiAppBar
@@ -83,7 +83,7 @@ const AppBar = () => {
                     <InputAdornment position="start">
                       <HiSearch />
                     </InputAdornment>
-                  ),
+                  )
                 }}
               />
             </Grid>
@@ -103,7 +103,7 @@ const AppBar = () => {
         </Grid>
       </Toolbar>
     </MuiAppBar>
-  );
-};
+  )
+}
 
-export default AppBar;
+export default AppBar
