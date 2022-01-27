@@ -4,30 +4,24 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import createStore from "./redux/create"
 
-import { ThemeProvider } from "@mui/material/styles"
-
-import { theme } from "./theme"
-
 import "./styles/styles.scss"
 
-// import { Home } from './containers/Home/Home'
-// import { Writer } from './containers/Writer/Writer'
-import LoginPage from "./pages/Login/LoginPage"
+import HomePage from "./pages/index"
+import LoginPage from "./pages/login"
+import WriterPage from "./pages/writer"
 
 const store = createStore()
 
 export default function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Routes>
-            {/* <Route path="/" element={<Home />} />
-            <Route path="/writer/new" element={<Writer />} /> */}
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </Router>
-      </ThemeProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/writer" element={<WriterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Router>
     </Provider>
   )
 }

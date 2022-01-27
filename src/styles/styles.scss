@@ -3,5 +3,10 @@
 */
 @import "./variables";
 @import "./general";
+@import "./header";
 
 @import "bootstrap/dist/css/bootstrap.css";
+
+.container {
+  max-width: 1400px;
+}

@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  border: 1px solid;
+}
+
+.header .header-right {
+  flex: 1;
+}
+.header .header-left {
+  flex: 1;
+}

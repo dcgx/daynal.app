@@ -1,0 +1,24 @@
+.writer-cover {
+  width: calc(100vh - 200px);
+}
+.writer-form {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 400px);
+  padding: 20px;
+
+  .writer-form__input-title {
+    font-size: 20px;
+    background: transparent;
+    font-weight: 800;
+    padding-bottom: 20px;
+  }
+
+  .writer-form__content {
+    color: gray;
+    background: transparent;
+    font-size: 16px;
+    flex: 1 1 auto;
+    resize: none;
+  }
+}
